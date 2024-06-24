@@ -4,8 +4,8 @@
   "description": "🌓 Add darkmode / nightmode to your website in a few seconds",
   "main": "lib/darkmode-js.js",
   "scripts": {
-    "build": "webpack --env dev && webpack --env build && npm run test",
-    "dev": "webpack --progress --colors --watch --env dev",
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && webpack --env dev --progress && webpack --env build --progress && npm run test",
+    "dev": "set NODE_OPTIONS=--openssl-legacy-provider && webpack --progress --colors --watch --env dev",
     "serve": "http-server",
     "test": "mocha --require babel-register --colors ./test/*.spec.js",
     "test:watch": "mocha --require babel-register --colors -w ./test/*.spec.js",
