@@ -111,6 +111,7 @@ export default class Darkmode {
     const button = document.createElement('button');
     const background = document.createElement('div');
 
+    button.setAttribute('type', 'button');
     button.innerHTML = options.label;
     button.classList.add('darkmode-toggle--inactive');
     layer.classList.add('darkmode-layer');
