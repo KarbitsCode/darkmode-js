@@ -4,15 +4,16 @@
   "description": "🌓 Add darkmode / nightmode to your website in a few seconds",
   "main": "lib/darkmode-js.js",
   "scripts": {
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && webpack --env dev --progress && webpack --env build --progress && npm run test",
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && npm run prettier:app && webpack --env dev --progress && webpack --env build --progress && npm run test",
     "dev": "set NODE_OPTIONS=--openssl-legacy-provider && webpack --progress --colors --watch --env dev",
     "serve": "http-server",
     "test": "mocha --require babel-register --colors ./test/*.spec.js",
     "test:watch": "mocha --require babel-register --colors -w ./test/*.spec.js",
     "test:cover": "cross-env NODE_ENV=test nyc mocha --require babel-register --colors test/*.js",
     "repl": "node -i -e \"$(< ./lib/darkmode-js.js)\"",
-    "prettier:app": "prettier --write src test && eslint --fix --ext .js",
-    "lint": "eslint --fix --ext .js"
+    "prettier:app": "prettier --write src test && npm run lint",
+    "lint": "eslint --fix --ext .js",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
