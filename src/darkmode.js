@@ -98,12 +98,14 @@ export default class Darkmode {
         display: inline-block;
       }
 
-      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      @media screen and (forced-colors: active) {
         .darkmode-toggle {display: none !important}
+        .darkmode-layer--button {display: none !important}
       }
 
       @supports (-ms-ime-align:auto), (-ms-accelerator:true) {
         .darkmode-toggle {display: none !important}
+        .darkmode-layer--button {display: none !important}
       }
     `;
 
@@ -152,7 +154,7 @@ export default class Darkmode {
 
     linkElement.setAttribute('rel', 'stylesheet');
     linkElement.setAttribute('type', 'text/css');
-    linkElement.setAttribute('href', 'data:text/css;charset=UTF-8,' + encodeURIComponent(css));
+    linkElement.setAttribute('href', 'data:text/css;charset=UTF-8;base64,' + encodeURIComponent(btoa(css)));
     document.head.appendChild(linkElement);
   }
 
